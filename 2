@@ -1,0 +1,7 @@
+	@DisplayName("El depositar saldo positivo")
+	void testDepositarSaldo() {
+		double saldoEsperado = 50;
+		cuent1.depositar(50);
+		double saldoActual = cuent1.getSaldo();
+		assertEquals(saldoEsperado, saldoActual, "El saldo depositado no se corresponde");
+	}
