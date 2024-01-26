@@ -1,0 +1,30 @@
+package com.ejemplos.debugger;
+
+import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class CuentaBancariaTest {
+	
+CuentaBancaria cuent1;
+	@Test
+	public void test1() {
+		String mensajeEsperado="Todo bien";
+		Exception exception = assertThrows(IllegalArgumentException.class, () ->
+        new CuentaBancaria(80.0));
+
+		assertEquals(mensajeEsperado, exception.getMessage());
+
+	}
+	
+	@DisplayName("El depositar saldo positivo")
+	void testDepositarSaldo() {
+		double saldoEsperado = 50;
+		cuent1.depositar(50);
+		double saldoActual = cuent1.getSaldo();
+		assertEquals(saldoEsperado, saldoActual, "El saldo depositado no se corresponde");
+	}
+}
+
